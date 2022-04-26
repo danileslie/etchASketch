@@ -53,8 +53,14 @@ function clearGrid(){
 
 function newGrid(){    
 let request = prompt('Select a size for your grid! (Max 100 squares): ');
-removeSettings();
-createGrid(request);
+
+if (request < 1 || request > 100 || !parseInt(request) == true) {
+    alert('Please input a number between 1 and 100.');
+}
+else {
+    removeSettings();
+    createGrid(request);
+}
 }
 
 // removes previous grid before calling new one in newGrid()
