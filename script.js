@@ -3,6 +3,8 @@ let track = "1fr ";
 let clearButton = document.querySelector('.clear');
 let newGridButton = document.querySelector('.newGrid');
 let eraserButton = document.querySelector('.eraser');
+let rainbowButton = document.querySelector('.rainbow');
+let blackButton = document.querySelector('.black');
 let boxes;
 
 // default grid on page load
@@ -41,6 +43,7 @@ function eraser(){
     boxes.forEach(div => {
         div.addEventListener('mouseover', function(){
             div.classList.remove('colour');
+            div.style.backgroundColor = null;
         });
     });
 }
@@ -49,6 +52,7 @@ function clearGrid(){
     boxes = document.querySelectorAll(".box");
     boxes.forEach(div => {
             div.classList.remove('colour');
+            div.style.backgroundColor = null;
         });
     };
 
@@ -73,12 +77,34 @@ function removeSettings(){
     });
 }
 
+function rainbow(){
+    boxes = document.querySelectorAll(".box");
+    boxes.forEach((div, index) => {
+        div.addEventListener('mouseover', function(){
+        let hue = (index/boxes.length) * 360;
+        div.style.backgroundColor = `hsl(${hue}, 80%, 50%)`
+    });
+});
+}
+
+function black(){
+    boxes = document.querySelectorAll(".box");
+    boxes.forEach((div, index) => {
+        div.addEventListener('mouseover', function(){
+            div.style.backgroundColor = null;
+            changeColour();
+        });
+    });
+    }        
+
+
 //buttons 
 
 clearButton.addEventListener('click', clearGrid);
 newGridButton.addEventListener('click', newGrid);
 eraserButton.addEventListener('click', eraser);
+rainbowButton.addEventListener('click', rainbow);
+blackButton.addEventListener('click', black);
 
-//make rainbow tiles work (with button for toggle)
 //turn grid selection into slider
 //clean grid boxes (maybe remove borders)
