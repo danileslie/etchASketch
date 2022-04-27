@@ -2,6 +2,7 @@ let container = document.querySelector('#container');
 let track = "1fr ";
 let clearButton = document.querySelector('.clear');
 let newGridButton = document.querySelector('.newGrid');
+let eraserButton = document.querySelector('.eraser');
 let boxes;
 
 // default grid on page load
@@ -35,7 +36,7 @@ boxes.forEach(div => {
 
 //section for button functionality 
 
-function eraserMode(){
+function eraser(){
     boxes = document.querySelectorAll(".box");
     boxes.forEach(div => {
         div.addEventListener('mouseover', function(){
@@ -76,5 +77,8 @@ function removeSettings(){
 
 clearButton.addEventListener('click', clearGrid);
 newGridButton.addEventListener('click', newGrid);
+eraserButton.addEventListener('click', eraser);
 
-
+//make rainbow tiles work (with button for toggle)
+//turn grid selection into slider
+//clean grid boxes (maybe remove borders)
