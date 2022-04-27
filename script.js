@@ -35,15 +35,14 @@ boxes.forEach(div => {
 });
 }
 
-
-//section for button functionality 
+//button functionality 
 
 function eraser(){
     boxes = document.querySelectorAll(".box");
     boxes.forEach(div => {
         div.addEventListener('mouseover', function(){
             div.classList.remove('colour');
-            div.style.backgroundColor = null;
+            div.removeAttribute('style');
         });
     });
 }
@@ -52,7 +51,7 @@ function clearGrid(){
     boxes = document.querySelectorAll(".box");
     boxes.forEach(div => {
             div.classList.remove('colour');
-            div.style.backgroundColor = null;
+            div.removeAttribute('style');
         });
     };
 
@@ -81,8 +80,11 @@ function rainbow(){
     boxes = document.querySelectorAll(".box");
     boxes.forEach((div, index) => {
         div.addEventListener('mouseover', function(){
-        let hue = (index/boxes.length) * 360;
-        div.style.backgroundColor = `hsl(${hue}, 80%, 50%)`
+            let rValue = Math.floor(Math.random() * 256)
+            let gValue = Math.floor(Math.random() * 256)
+            let bValue = Math.floor(Math.random() * 256)
+        div.classList.remove('colour');
+        div.style.backgroundColor = `rgb(${rValue}, ${gValue}, ${bValue})`    
     });
 });
 }
@@ -91,12 +93,11 @@ function black(){
     boxes = document.querySelectorAll(".box");
     boxes.forEach((div, index) => {
         div.addEventListener('mouseover', function(){
-            div.style.backgroundColor = null;
+            div.removeAttribute('style');
             changeColour();
         });
     });
     }        
-
 
 //buttons 
 
