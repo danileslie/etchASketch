@@ -1,13 +1,13 @@
 #container{
     display: grid;
-    height: 960px;
-    width: 960px;
+    height: 700px;
+    width: 700px;
     border: 2px solid red;
     margin: auto;
   }
 
   .box{
-    border: 1px solid goldenrod;
+    border: none;
   }
 
   .colour{
@@ -16,4 +16,11 @@
 
   .clear, .newGrid, .eraser, .rainbow, .black{
     padding: 10px;
+  }
+
+  .buttons{
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    gap: 10px;
   }
